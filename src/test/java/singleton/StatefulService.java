@@ -8,6 +8,9 @@ public class StatefulService {
         System.out.println("name = " + name + " price = " + price);
 //        this.price = price;
         System.out.println("name = " + name);
+        System.out.println();
+        System.out.println();
+
         return price;
     }
 //    public int getPrice(){
