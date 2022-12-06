@@ -11,7 +11,7 @@ import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-//없으면 CGLIB 적용 안된 순수 AppConfig 등록됨 & 싱글톤 보장 안됨
+//없으면 CGLIB 적용 안된 순수 AppConfig 등록됨 -> 싱글톤 보장 안됨
 @Configuration
 public class AppConfig {
     @Bean
