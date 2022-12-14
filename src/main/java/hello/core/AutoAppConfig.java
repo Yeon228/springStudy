@@ -17,9 +17,9 @@ public class AutoAppConfig {
     //auto wired 기능 사용
 
 
-    @Bean(name = "memoryMemberRepository")
-    MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
-    }
+//    @Bean(name = "memoryMemberRepository")
+//    MemberRepository memberRepository(){
+//        return new MemoryMemberRepository();
+//    }
     //자동 등록 빈과 수동 등록 빈의 이름이 같은 경우가 발생할 시 수동 등록 빈이 우선권을 가짐
 }
