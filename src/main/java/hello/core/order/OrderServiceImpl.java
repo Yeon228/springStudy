@@ -8,10 +8,12 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor //final이 붙은 변수의 생성자를 만들어줌
+@Qualifier//추가 구분자 -> 빈 이름 등에 영향을 주지는 않음
+// @RequiredArgsConstructor //final이 붙은 변수의 생성자를 만들어줌
 public class OrderServiceImpl implements OrderService{
 
     //@Autowired private final MemberRepository memberRepository; 필드 의존관계 자동 주입
@@ -32,10 +34,12 @@ public class OrderServiceImpl implements OrderService{
     //불변, 필수 의존관계에 사용
     //생성자가 1개만 있으면 @Autowired 없이도 자동 주입됨.
     //bean 등록과 함께 의존관계 주입. new OrderServiceImpl()시점에 주입됨
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    //우선순위 Qualifier > Primary
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository,  DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 //  생성자 의존관계 주입은 의존관계 주입을 안할 시 (new 단계에서) 컴파일 에러가 나와서 좋음
 //    @Autowired
 //    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
