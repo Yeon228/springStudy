@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService{
     //외부에서 변경이 힘들어 추천 x>
 
     private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private final DiscountPolicy discountPolicy;//final을 쓰면 좋은점 -> 생성자에서만 DI 가능
 
     //setter(수정자) 의존관계 주입
     //빈 등록 이후 주입함
@@ -35,6 +35,15 @@ public class OrderServiceImpl implements OrderService{
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+//  생성자 의존관계 주입은 의존관계 주입을 안할 시 (new 단계에서) 컴파일 에러가 나와서 좋음
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
+//    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
@@ -45,9 +54,11 @@ public class OrderServiceImpl implements OrderService{
         return new Order(memberId,itemName,itemPrice,discountPrice);
     }
 
+
     //테스트 용도
     public MemberRepository getMemberRepository() {
         return memberRepository;
     }
+
 
 }
