@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
@@ -36,7 +37,7 @@ public class OrderServiceImpl implements OrderService{
     //bean 등록과 함께 의존관계 주입. new OrderServiceImpl()시점에 주입됨
     //우선순위 Qualifier > Primary
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository,  DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository,  @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
