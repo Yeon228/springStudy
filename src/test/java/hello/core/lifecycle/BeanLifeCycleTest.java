@@ -20,7 +20,7 @@ public class BeanLifeCycleTest {
     @Configuration
     static class LifeCycleConfig{
 
-        @Bean(initMethod = "init", destroyMethod = "close")//init,close 메서드 지정
+        @Bean//(initMethod = "init", destroyMethod = "close") init,close 메서드 지정
         //메서드 이름 자유롭게 사용 가능, 스프링 빈이 스프링 코드에 의존안함
         //외부 라이브러리에도 초기화, 종료 메서드 지정 가능 (중요)
         //destroyMethod는 지정을 안해줘도 기본적으로 사용되는 종료 메서드의 이름을 추론해서 호출해줌
