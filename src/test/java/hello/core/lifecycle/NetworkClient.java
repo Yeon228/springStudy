@@ -4,7 +4,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 // InitializingBean, DisposableBean (초기화, 소멸) 인터페이스는 전적으로 스프링에 의존하는 단점 있음
 // 메서드 이름 변경이 불가능함. 지금은 거의 사용 x
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient {
     private String url;
 
     public NetworkClient() {
@@ -32,17 +32,15 @@ public class NetworkClient implements InitializingBean, DisposableBean {
     }
 
     //의존관계 주입이 끝나면 호출되는 메서드
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("NetworkClient.afterPropertiesSet");
+    public void init(){
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
 
-    //빈 삭제시 호출되는 메서드
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("NetworkClient.destroy");
+    //빈 삭제시 호출되는 메서드@Override
+    public void close(){
+        System.out.println("NetworkClient.close");
         disconnect();
     }
 }
