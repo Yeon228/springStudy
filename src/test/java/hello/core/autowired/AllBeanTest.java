@@ -15,7 +15,9 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.*;
 
 public class AllBeanTest {
-    
+
+    //이와 같은 다형성을 적극 활용하는 경우에는 AutoAppConfig가 아닌 수동 의존관계 등록도 나쁘지 않음. 만약 자동 등록을 사용한다면
+    //같은 패키지 않에 있는 클래스들을 사용하자
     @Test
     void findAllBean(){
         ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountService.class);
