@@ -14,6 +14,8 @@ public class PrototypeTest {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
+        System.out.println("prototypeBean2 = " + prototypeBean2);
+        System.out.println("prototypeBean1 = " + prototypeBean1);
         Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
     }
 
