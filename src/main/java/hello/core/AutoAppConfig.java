@@ -16,7 +16,6 @@ import org.springframework.context.annotation.FilterType;
 public class AutoAppConfig {
     //auto wired 기능 사용
 
-
 //    @Bean(name = "memoryMemberRepository")
 //    MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
