@@ -13,6 +13,7 @@ public class PrototypeTest {
     void prototypeBeanFind(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
         PrototypeBean prototypeBean1 = ac.getBean(PrototypeBean.class);
+        System.out.println();
         PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
         Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
     }
