@@ -17,6 +17,7 @@ public class PrototypeTest {
         Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
     }
 
+
     @Scope("prototype")
     static class PrototypeBean{
         @PostConstruct
