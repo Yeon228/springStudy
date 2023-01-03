@@ -16,6 +16,9 @@ public class MyLogger {
 
     public void setRequestURL(String requestURL) {
         this.requestURL = requestURL;
+        System.out.println();
+        System.out.println("MyLogger.setRequestURL");
+        System.out.println();
     }
 
     public void log(String message){
@@ -31,6 +34,5 @@ public class MyLogger {
     @PreDestroy
     public void close(){
         System.out.println("[" + uuid + "] request scope bean close " + this);
-
     }
 }
