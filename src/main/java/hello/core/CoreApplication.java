@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @SpringBootApplication
 public class CoreApplication {
-
+	//finish
 	public static void main(String[] args) {
 		SpringApplication.run(CoreApplication.class, args);
 	}
